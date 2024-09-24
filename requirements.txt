@@ -1,0 +1,27 @@
+
+TO use the code, you will have to follow some steps:
+
+1. GO to the following link and download the zip folder:
+https://universe.roboflow.com/roboflow-universe-projects/construction-site-safety/dataset/28
+
+2. Unzip the folder and upload this folder to your Google drive
+
+3. Create a new notebook in Google Colab and mount your drive with it.
+
+4. In your uploaded folder go to data.yaml file and and add following in the first line:
+'path: path/of/your/uploaded/folder'
+
+5. In colab, run following commands:
+'!pip install ultralytics'
+
+'import ultralytics'
+
+'!yolo task=detect mode=predict model=yolov8n.pt conf=0.25 source='https://ultralytics.com/images/bus.jpg'
+
+'!yolo task=detect mode=train model=yolov8l.pt data=/home/m-ans/Documents/Python/PPE/Construction_Site_Safety/data.yaml epochs=30 imgsz=640'
+
+6. This will take some time. After completing, you will a folder 'runs' in your drive or runtime. GO to runs/detect/train/weights 
+    and download the best.pt folder. 
+
+7. Create a Python file in your VScode or any editor you want and paste the given code in the file. Give path to your 'best.pt' model 
+    and choose a file. This code will also save a output.avi in your current folder.
